@@ -125,11 +125,6 @@ TIMESPEC TS_DCOP = PERIOD "DCOP" 4.16 ns HIGH 50%;
 NET "DCON" TNM_NET = DCON;
 TIMESPEC TS_DCON = PERIOD "DCON" TS_DCOP PHASE 2.08 ns HIGH 50%;
 
-NET "Tx_clk" TNM_NET = "Tx_clk";
-TIMESPEC TS_TX_CLK = PERIOD "Tx_clk" 40 ns HIGH 50%;
-NET "Rx_clk" TNM_NET = "Rx_clk";
-TIMESPEC TS_RX_CLK = PERIOD "Rx_clk" 40 ns HIGH 50%;
-
 # NET "DCOP" TNM_NET = "DCOP";
 # TIMESPEC TS_DCOP = PERIOD "DCOP" TS_pll2_CLKOUT0_BUF PHASE + 3.7 ns HIGH 50%;
 
@@ -429,8 +424,6 @@ TIMESPEC "TS_DQ_CE" = FROM "TNM_DQ_CE_IDDR" TO "TNM_DQS_FLOPS" 1.9 ns;
 
 NET "*BU2/U0/grf.rf/*" TIG;
 NET "*BU2/U0/grf.rf/*" TIG;
-NET "MAC_top_inst/U_MAC_tx/U_MAC_tx_FF/*" TIG;
-NET "MAC_top_inst/U_MAC_rx/U_MAC_rx_FF/*" TIG;
 # NET "test_async_ddr/state_FSM_FFd2" TIG;
 NET "*reader*/start_l" TIG;
 # NET "*reader/bottom_l" TIG;

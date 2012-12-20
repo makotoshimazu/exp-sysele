@@ -590,9 +590,9 @@ module sysele
       .ad2_delay(ad2_delay),
       .ad_valid_delay(ad_valid_delay),
 
-	  .raw_send_d(ber_sent_data),
-	  .raw_recv(ber_recv_data),
-	  .valid_raw(lcd_ber_valid_i)
+      .raw_send_d(ber_sent_data),
+      .raw_recv(ber_recv_data),
+      .valid_raw(lcd_ber_valid_i)
       );
    
 
@@ -644,7 +644,15 @@ module sysele
    // --------------------------------------------------
    // LEDS AND SWITCHES
    // --------------------------------------------------
-   assign LED = 8'h0;
+   assign LED = DIP == 8'b0 ? app_af_cmd[23:16] : 
+                DIP == 8'd4 ? ad1_240 : 
+                DIP == 8'd5 ? ad2_240 : 
+                DIP == 8'd128 ? ad1_delay : 
+                DIP == 8'd129 ? ad2_delay : 
+                DIP == 8'd130 ? ad_valid_delay : 
+                DIP == 8'd131 ? DA1 : 
+                DIP == 8'd132 ? DA2 : 
+                8'h0;
 
    assign LED_C = 1'b0;
    assign LED_S = 1'b0;
@@ -678,7 +686,7 @@ module sysele
      #(
        .update_period(32'd80_000_000)
        )
-	  lcd_ber_top_inst
+      lcd_ber_top_inst
      (
       .CLK(clkcomm),
       .RST(rstgen),

@@ -1,17 +1,17 @@
 --------------------------------------------------------------------------------
--- Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --------------------------------------------------------------------------------
 --   ____  ____ 
 --  /   /\/   / 
 -- /___/  \  /    Vendor: Xilinx 
--- \   \   \/     Version : 11.5
+-- \   \   \/     Version : 14.3
 --  \   \         Application : xaw2vhdl
 --  /   /         Filename : pll3.vhd
--- /___/   /\     Timestamp : 10/16/2012 16:45:00
+-- /___/   /\     Timestamp : 12/20/2012 13:47:27
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: xaw2vhdl-st /home/hiroki/Workspace/lab/sysele/ipcore_dir/pll3.xaw /home/hiroki/Workspace/lab/sysele/ipcore_dir/pll3
+--Command: xaw2vhdl-st /home/denjo/Dropbox/lecture/term6/sysele/sysele_day9/ipcore_dir/pll3.xaw /home/denjo/Dropbox/lecture/term6/sysele/sysele_day9/ipcore_dir/pll3
 --Design Name: pll3
 --Device: xc5vlx50-3ff676
 --
@@ -21,7 +21,7 @@
 -- For block PLL_ADV_INST, Estimated PLL Jitter for CLKOUT0 = 0.140 ns
 -- For block PLL_ADV_INST, Estimated PLL Jitter for CLKOUT1 = 0.133 ns
 -- For block PLL_ADV_INST, Estimated PLL Jitter for CLKOUT2 = 0.133 ns
--- For block PLL_ADV_INST, Estimated PLL Jitter for CLKOUT3 = 0.152 ns
+-- For block PLL_ADV_INST, Estimated PLL Jitter for CLKOUT3 = 0.151 ns
 
 library ieee;
 use ieee.std_logic_1164.ALL;
@@ -41,7 +41,6 @@ end pll3;
 
 architecture BEHAVIORAL of pll3 is
    signal CLKFBOUT_CLKFBIN : std_logic;
-   signal CLKIN1_IBUFG     : std_logic;
    signal CLKOUT0_BUF      : std_logic;
    signal CLKOUT1_BUF      : std_logic;
    signal CLKOUT2_BUF      : std_logic;
@@ -55,10 +54,6 @@ begin
    GND_BUS_5(4 downto 0) <= "00000";
    GND_BUS_16(15 downto 0) <= "0000000000000000";
    VCC_BIT <= '1';
-   CLKIN1_IBUFG_INST : IBUFG
-      port map (I=>CLKIN1_IN,
-                O=>CLKIN1_IBUFG);
-   
    CLKOUT0_BUFG_INST : BUFG
       port map (I=>CLKOUT0_BUF,
                 O=>CLKOUT0_OUT);
@@ -95,10 +90,10 @@ begin
             DIVCLK_DIVIDE => 1,
             CLKFBOUT_MULT => 8,
             CLKFBOUT_PHASE => 0.0,
-            REF_JITTER => 0.005000)
+            REF_JITTER => 0.000000)
       port map (CLKFBIN=>CLKFBOUT_CLKFBIN,
                 CLKINSEL=>VCC_BIT,
-                CLKIN1=>CLKIN1_IBUFG,
+                CLKIN1=>CLKIN1_IN,
                 CLKIN2=>GND_BIT,
                 DADDR(4 downto 0)=>GND_BUS_5(4 downto 0),
                 DCLK=>GND_BIT,

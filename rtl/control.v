@@ -160,7 +160,7 @@ module control
         // ad2_delay <= 4'd0;
 
         // 80
-        ad2_delay <= 4'd0;
+        ad2_delay <= 4'd2;
      end else begin
         if (ad2_incr)
           ad2_delay <= ad2_delay + 4'd1;
