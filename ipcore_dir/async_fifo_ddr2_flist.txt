@@ -1,0 +1,18 @@
+# Output products list for <async_fifo_ddr2>
+_xmsgs/
+async_fifo_ddr2.asy
+async_fifo_ddr2.gise
+async_fifo_ddr2.ise
+async_fifo_ddr2.ngc
+async_fifo_ddr2.sym
+async_fifo_ddr2.v
+async_fifo_ddr2.veo
+async_fifo_ddr2.vhd
+async_fifo_ddr2.vho
+async_fifo_ddr2.xco
+async_fifo_ddr2.xise
+async_fifo_ddr2_flist.txt
+async_fifo_ddr2_readme.txt
+async_fifo_ddr2_xdb/tmp/
+async_fifo_ddr2_xmdf.tcl
+fifo_generator_ug175.pdf

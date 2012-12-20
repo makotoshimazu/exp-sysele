@@ -1,0 +1,67 @@
+
+CORE Generator Options:
+   Target Device                  : xc5vlx50-ff676
+   Speed Grade                    : -1
+   HDL                            : verilog
+   Synthesis Tool                 : XST
+
+MIG Output Options:
+   Module Name                    : ddr2
+   No of Controllers              : 1
+   Selected Compatible Device(s)  : --
+   Hardware Test Bench           : disabled
+   PPC440                         : --
+   PowerPC440 Block Selection     : --
+
+FPGA Options:
+   PLL                            : disabled
+   Debug Signals                  : Disable
+   System Clock                   : Single-Ended
+   Limit to 2 Bytes per Bank      : disabled
+
+Extended FPGA Options:
+   DCI for DQ/DQS                 : enabled
+   DCI for Address/Control        : disabled
+   Class for Address and Control  : Class II
+
+Reserve Pins:
+   --
+    
+   /*******************************************************/
+   /*                  Controller 0                       */
+   /*******************************************************/
+   Controller Options :
+      Memory                         : DDR2_SDRAM
+      Design Clock Frequency         : 3750 ps(266.67 MHz)
+      Memory Type                    : SODIMMs
+      Memory Part                    : MT4HTF3264HY-53E
+      Equivalent Part(s)             : --
+      Data Width                     : 64
+      Memory Depth                   : 1
+      ECC                            : ECC Disabled
+      Data Mask                      : enabled
+
+   Memory Options:
+      Burst Length (MR[2:0])         : 4(010)
+      Burst Type (MR[3])             : sequential(0)
+      CAS Latency (MR[6:4])          : 4(100)
+      Output Drive Strength (EMR[1]) : Fullstrength(0)
+      RTT (nominal) - ODT (EMR[6,2]) : 75ohms(01)
+      Additive Latency (EMR[5:3])    : 0(000)
+
+   FPGA Options:
+      IODELAY Performance Mode       : HIGH
+
+   Selected Banks and Pins usage : 
+       Data          :bank 14(38) -> Number of pins used : 22 
+                      bank 16(38) -> Number of pins used : 33 
+                      bank 21(38) -> Number of pins used : 33 
+                      
+       Address/Control:bank 14(38) -> Number of pins used : 14 
+                      bank 18(38) -> Number of pins used : 11 
+                      
+       System Control:bank 18(38) -> Number of pins used : 2 
+                      
+       System Clock  :
+       Total IOs used :    115
+

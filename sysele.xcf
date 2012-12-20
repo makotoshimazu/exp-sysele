@@ -1,0 +1,13 @@
+
+# ddr2_inst/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dm_inst.gen_dm[7].u_iob_dm/u_dm_ce" max_fanout=1;
+# BEGIN MODEL "ddr2_phy_dm_iob"
+#       NET "u_dm_ce" max_fanout=1;
+#       NET "u_dm_ce" register_duplication=yes;
+#       NET "u_dm_ce*" equivalent_register_removal=no;
+# END;
+
+MODEL "async_seq_writer" register_balancing=yes;
+MODEL "asnyc_seq_reader" register_balancing=yes;
+MODEL "ddr2_arb_top" register_balancing=yes;
+MODEL "ddr2_arb" register_balancing=yes;
+MODEL "ddr2_convert" register_balancing=yes;

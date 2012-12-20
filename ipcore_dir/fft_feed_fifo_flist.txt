@@ -1,0 +1,18 @@
+# Output products list for <fft_feed_fifo>
+_xmsgs/
+fft_feed_fifo.asy
+fft_feed_fifo.gise
+fft_feed_fifo.ise
+fft_feed_fifo.ngc
+fft_feed_fifo.sym
+fft_feed_fifo.v
+fft_feed_fifo.veo
+fft_feed_fifo.vhd
+fft_feed_fifo.vho
+fft_feed_fifo.xco
+fft_feed_fifo.xise
+fft_feed_fifo_flist.txt
+fft_feed_fifo_readme.txt
+fft_feed_fifo_xdb/tmp/
+fft_feed_fifo_xmdf.tcl
+fifo_generator_ug175.pdf

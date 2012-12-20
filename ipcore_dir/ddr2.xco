@@ -1,0 +1,42 @@
+##############################################################
+#
+# Xilinx Core Generator version 11.5
+# Date: Sun Nov 11 07:10:52 2012
+#
+##############################################################
+#
+#  This file contains the customisation parameters for a
+#  Xilinx CORE Generator IP GUI. It is strongly recommended
+#  that you do not manually alter this file as it may cause
+#  unexpected and unsupported behavior.
+#
+##############################################################
+#
+# BEGIN Project Options
+SET addpads = False
+SET asysymbol = True
+SET busformat = BusFormatAngleBracketNotRipped
+SET createndf = False
+SET designentry = VHDL
+SET device = xc5vlx50
+SET devicefamily = virtex5
+SET flowvendor = Foundation_ISE
+SET formalverification = False
+SET foundationsym = False
+SET implementationfiletype = Ngc
+SET package = ff676
+SET removerpms = False
+SET simulationfiles = Behavioral
+SET speedgrade = -1
+SET verilogsim = True
+SET vhdlsim = False
+# END Project Options
+# BEGIN Select
+SELECT MIG family Xilinx,_Inc. 3.3
+# END Select
+# BEGIN Parameters
+CSET component_name=ddr2
+CSET xml_input_file=/home/hiroki/Workspace/lab/sysele/ipcore_dir/ddr2/user_design/mig.prj
+# END Parameters
+GENERATE
+# CRC: 83884d4e

@@ -1,0 +1,1 @@
+xst -ise "/home/hiroki/Workspace/lab/sysele/ipcore_dir/async_fifo_ddr2.ise" -intstyle ise -ifn "/home/hiroki/Workspace/lab/sysele/ipcore_dir/async_fifo_ddr2.xst" -ofn "/home/hiroki/Workspace/lab/sysele/ipcore_dir/async_fifo_ddr2.syr" 
