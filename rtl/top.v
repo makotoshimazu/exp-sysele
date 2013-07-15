@@ -644,8 +644,7 @@ module sysele
    // --------------------------------------------------
    // LEDS AND SWITCHES
    // --------------------------------------------------
-   assign LED = DIP == 8'b0 ? app_af_cmd[23:16] : 
-                DIP == 8'd4 ? ad1_240 : 
+   assign LED = DIP == 8'd4 ? ad1_240 : 
                 DIP == 8'd5 ? ad2_240 : 
                 DIP == 8'd128 ? ad1_delay : 
                 DIP == 8'd129 ? ad2_delay : 

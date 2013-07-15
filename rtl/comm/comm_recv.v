@@ -110,6 +110,8 @@ module comm_recv
    //   11*2            128
    // ---/--- [DEMAP] ---/---
 
+    wire valid_o_iqdemap;
+    wire [127:0] encoded;
    generate
       if (modtype == 1) begin
          iqdemap_bpsk iqdemap_inst
@@ -123,12 +125,34 @@ module comm_recv
             .ar(ar3),
             .ai(ai3),
 
-            .valid_o(wr_en),
-            .writer_data(dout),
+            .valid_o(valid_o_iqdemap),
+            .writer_data(encoded)
 
-            .valid_raw(valid_raw),
-            .raw(raw[0])
+            // .valid_raw(valid_raw),
+            // .raw(raw[0])
             );
+
+          viterbi viterbi_inst (
+                                // Outputs
+                                .valid_o        (wr_en),
+                                .writer_data    (dout),
+                                // Inputs
+                                .CLK            (CLK),
+                                .RST            (RST),
+                                
+                                .valid_i        (valid_o_iqdemap),
+                                .encoded        (encoded)
+                                );
+
+          serialize serialize_inst (
+                                    // Outputs
+                                    .raw                (raw[0]),
+                                    .valid_raw          (valid_raw),
+                                    // Inputs
+                                    .CLK                (CLK),
+                                    .RST                (RST),
+                                    .valid_i            (valid_o_iqdemap),
+                                    .in                 (dout));
 
          assign raw[5:1] = 5'h0;
       end

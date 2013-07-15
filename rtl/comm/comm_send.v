@@ -33,10 +33,36 @@ module comm_send
    wire [width-1:0] ar1, ai1;
    wire             valid_1;
 
+    wire valid_o_conv, enable;
+    wire   [127:0] encoded;
+
    assign ce1 = 1'b1;
 
    generate
       if (modtype == 1) begin
+          serialize serialize_inst (
+                                    // Outputs
+                                    .raw                (raw[0]),
+                                    .valid_raw          (valid_raw),
+                                    // Inputs
+                                    .CLK                (CLK),
+                                    .RST                (RST),
+                                    .valid_i            (!empty),
+                                    .in                 (din));
+          
+          conv conv_inst (/*AUTOINST*/
+                          .CLK                  (CLK),
+                          .RST                  (RST),                          
+
+                          .valid_i              (!empty),
+                          .reader_data          (din),
+                          .reader_en            (rd_en),
+                          
+                          .enable               (enable),
+                          .encoded              (encoded),
+                          .valid_o              (valid_o_conv)
+                          );
+
          iqmap_bpsk iqmap_inst
            (
             .CLK(CLK),
@@ -44,16 +70,16 @@ module comm_send
 
             .ce(ce1),
 
-            .valid_i(!empty),
-            .reader_data(din),
-            .reader_en(rd_en),
+            .valid_i(valid_o_conv),
+            .reader_data(encoded),
+            .reader_en(enable),
 
             .xr(ar1),
             .xi(ai1),
-            .valid_o(valid_1),
+            .valid_o(valid_1)
 
-            .valid_raw(valid_raw),
-            .raw(raw[0])
+            // .valid_raw(valid_raw),
+            // .raw(raw[0])
             );
          assign raw[5:1] = 5'd0;
       end // if (modtype == 1)
